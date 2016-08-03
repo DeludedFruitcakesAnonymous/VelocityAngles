@@ -52,7 +52,7 @@ public class GameView extends View {
             drawableobject.update(canvas);
             physicalobject.update(canvas);
             Thread.sleep(100);
-        }catch(InterupptedException e){
+        }catch(InterruptedException e){
             
         }
     invalidate();}
