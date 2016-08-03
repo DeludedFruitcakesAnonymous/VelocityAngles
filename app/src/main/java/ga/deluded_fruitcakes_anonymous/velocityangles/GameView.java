@@ -11,15 +11,21 @@ import android.widget.Toast;
 public class GameView extends View {
     float centerX, centerY;
     float borderHeight;
-
-
+    DrawableObject drawableobject;
+    PhysicalObject physicalobject;
+    Bitmap bitmapBase = BitmapFactory.decodeResource(getResources(), R.drawable.joystick_base);
+    Bitmap bitmapTop = BitmapFactory.decodeResource(getResources(), R.drawable.joystick_top);
     public GameView(Context context, float sHeight, float sWidth) {
         super(context);
         borderHeight = sHeight * 0.7f;
         centerX = sWidth * 0.5f;
         centerY = sHeight * 0.9f;
+        CreateJoy();
     }
-
+    public void CreateJoy(){
+        drawableobject = new DrawableObject(bitmapBase,centerY,centerX,400,400);
+        physicalobject = new PhysicalObject(bitmapTop,centerY,centerX,200,200);
+    }
     @Override
     public boolean onTouchEvent(MotionEvent e) {
         // MotionEvent reports input details from the touch screen
@@ -32,9 +38,19 @@ public class GameView extends View {
             switch (e.getAction()) {
                 case MotionEvent.ACTION_DOWN:
                     Toast.makeText(getContext(), "Screen Touched at " + (x - centerX) + ", " + (y - centerY), Toast.LENGTH_SHORT).show();
-
+                    physicalobject.xAcceleration = x-centerX;
+                    physicalobject.xAcceleration = y-centerY;
             }
         }
         return true;
     }
+    public void OnDraw(Canvas canvas){
+        try{
+            drawableobject.update(canvas);
+            physicalobject.update(canvas);
+            Thread.sleep(100);
+        }catch(InterupptedException e){
+            
+        }
+    invalidate();}
 }
