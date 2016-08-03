@@ -22,11 +22,11 @@ public class GameView extends View {
         super(context);
         borderHeight = sHeight * 0.7f;
         centerX = sWidth * 0.5f;
-        centerY = sHeight * 0.7f;
+        centerY = sHeight * 0.5f;
         CreateJoystick();
     }
     public void CreateJoystick(){
-        drawableobject = new DrawableObject(bitmapBase,400,400,centerX, centerY);
+        drawableobject = new DrawableObject(bitmapBase,centerX, centerY,400,400);
         physicalobject = new PhysicalObject(bitmapTop,centerX,centerY,200,200);
     }
     @Override
