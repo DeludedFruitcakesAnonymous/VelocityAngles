@@ -58,6 +58,8 @@ public class GameView extends View {
         physicalObject.yPos = centerY;
         physicalObject.xAcceleration = 0;
         physicalObject.yAcceleration = 0;
+        physicalObject.xVelocity = 0;
+        physicalObject.yVelocity = 0;
     }
     public void onDraw(Canvas canvas){
         drawableObject.update(canvas);
