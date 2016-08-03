@@ -1,6 +1,9 @@
 package ga.deluded_fruitcakes_anonymous.velocityangles;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Toast;
