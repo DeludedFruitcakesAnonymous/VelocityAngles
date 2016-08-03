@@ -19,6 +19,8 @@ public class GameView extends View {
     String Message = "hello";
     DrawableObject drawableObject;
     PhysicalObject physicalObject;
+    float x2;
+    float y2;
     Bitmap bitmapBase = BitmapFactory.decodeResource(getResources(), R.drawable.joystick_base);
     Bitmap bitmapTop = BitmapFactory.decodeResource(getResources(), R.drawable.joystick_top);
     public GameView(Context context, float sHeight, float sWidth) {
@@ -40,6 +42,8 @@ public class GameView extends View {
 
         float x = e.getX();
         float y = e.getY();
+        x2 = x;
+        y2 = y;
         if (y >= borderHeight) {
             switch (e.getAction()) {
                 case MotionEvent.ACTION_DOWN:
@@ -70,9 +74,9 @@ public class GameView extends View {
         paint.setTextSize(100);
         paint.setColor(Color.BLACK);
         canvas.drawText(Message,100,100,paint);
-        if((physicalObject.yPos <= y +5) && (physicalObject.yPos >= y-5) ){
+        if((physicalObject.yPos <= y2 +5) && (physicalObject.yPos >= y2-5) ){
             Message = " Y = true";
-            if((physicalObject.xPos <=x +5) && (physicalObject.xPos >= x-5) ){
+            if((physicalObject.xPos <=x2 +5) && (physicalObject.xPos >= x2-5) ){
                 Message = " X = true";
 
                 physicalObject.xVelocity = 0;
