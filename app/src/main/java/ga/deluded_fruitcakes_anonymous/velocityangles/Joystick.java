@@ -4,6 +4,8 @@ package ga.deluded_fruitcakes_anonymous.velocityangles;
  * Created by Isaac on 8/3/2016.
  */
 public class Square {
+  float centerX, centerY
+  float borderHeight = 300;
   @Override
     public boolean onTouchEvent(MotionEvent e) {
         // MotionEvent reports input details from the touch screen
@@ -12,10 +14,10 @@ public class Square {
 
         float x = e.getX();
         float y = e.getY();
-
+    if(y >= borderHeight){
         switch (e.getAction()) {
             case MotionEvent.ACTION_DOWN:
-                Toast.makeText(getContext(), "Screen Touched at " + x + ", " + y, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Screen Touched at " + (x-centerX) + ", " + (y-centerY), Toast.LENGTH_SHORT).show();
 
-        }
+        }}
 }
