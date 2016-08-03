@@ -4,6 +4,8 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Toast;
@@ -26,8 +28,8 @@ public class GameView extends View {
         CreateJoystick();
     }
     public void CreateJoystick(){
-        drawableobject = new DrawableObject(bitmapBase,centerX, centerY,400,400);
-        physicalobject = new PhysicalObject(bitmapTop,centerX,centerY,200,200);
+        drawableobject = new DrawableObject(bitmapBase,centerX, centerY,200,200);
+        physicalobject = new PhysicalObject(bitmapTop,centerX,centerY,100,100);
     }
     @Override
     public boolean onTouchEvent(MotionEvent e) {
@@ -47,10 +49,14 @@ public class GameView extends View {
         }
         return true;
     }
-    public void OnDraw(Canvas canvas){
+    public void onDraw(Canvas canvas){
+        drawableobject.update(canvas);
+        physicalobject.update(canvas);
+        Paint paint = new Paint();
+        paint.setTextSize(100);
+        paint.setColor(Color.BLACK);
+        canvas.drawText("hello",100,100,paint);
         try{
-            drawableobject.update(canvas);
-            physicalobject.update(canvas);
             Thread.sleep(100);
         }catch(InterruptedException e){
             
