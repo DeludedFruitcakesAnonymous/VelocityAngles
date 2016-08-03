@@ -3,12 +3,6 @@ package ga.deluded_fruitcakes_anonymous.velocityangles;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
-import android.view.View;
-import android.widget.EditText;
-import android.widget.Toast;
-
-import ga.deluded_fruitcakes_anonymous.velocityangles.GameView;
-import ga.deluded_fruitcakes_anonymous.velocityangles.R;
 
 public class MainActivity extends AppCompatActivity {
     GameView v;

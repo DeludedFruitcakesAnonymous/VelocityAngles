@@ -1,4 +1,4 @@
-package ga.deluded_fruitcakes_anonymous.velocityangles
+package ga.deluded_fruitcakes_anonymous.velocityangles;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.RectF;
