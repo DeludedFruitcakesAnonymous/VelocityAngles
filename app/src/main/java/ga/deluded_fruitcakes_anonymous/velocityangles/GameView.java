@@ -56,6 +56,8 @@ public class GameView extends View {
     public void joystickReturn(){
         physicalObject.xPos = centerX;
         physicalObject.yPos = centerY;
+        physicalObject.xAcceleration = 0;
+        physicalObject.yAcceleration = 0;
     }
     public void onDraw(Canvas canvas){
         drawableObject.update(canvas);
