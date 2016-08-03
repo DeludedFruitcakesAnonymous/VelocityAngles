@@ -1,4 +1,4 @@
-package ga.deluded_fruitcakes_anonymous.velocityangles
+package ga.deluded_fruitcakes_anonymous.velocityangles;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 
@@ -6,7 +6,7 @@ import android.graphics.Canvas;
  * Created by azamp19 on 8/2/2016.
  */
 public class PhysicalObject extends DrawableObject {
-float xVel, yVel,xAcceleration,yAcceleration;
+float xVelocity, yVelocity,xAcceleration,yAcceleration;
 int Points;
 
     public PhysicalObject(Bitmap bitmap, float xPos, float yPos, float width, float height) {
@@ -14,10 +14,10 @@ int Points;
     }
     private void MoveByPhysics(){
 
-        xVel += xAcceleration;
-        yVel += yAcceleration;
-        xPos  += xVel;
-        yPos += yVel;
+        xVelocity += xAcceleration;
+        yVelocity += yAcceleration;
+        xPos  += xVelocity;
+        yPos += yVelocity;
         setBounds();
     }
     @Override
