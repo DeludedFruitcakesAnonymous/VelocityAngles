@@ -21,6 +21,7 @@ public class GameView extends View {
     PhysicalObject physicalObject;
     float x2;
     float y2;
+    float x3,y3;
     Bitmap bitmapBase = BitmapFactory.decodeResource(getResources(), R.drawable.joystick_base);
     Bitmap bitmapTop = BitmapFactory.decodeResource(getResources(), R.drawable.joystick_top);
     public GameView(Context context, float sHeight, float sWidth) {
@@ -50,11 +51,12 @@ public class GameView extends View {
                     Toast.makeText(getContext(), "Joystick moved to " + (x - centerX) + ", " + (y - centerY), Toast.LENGTH_SHORT).show();
                     physicalObject.xAcceleration = x-centerX;
                     physicalObject.yAcceleration = y-centerY;
-
+                    x3 = x;
+                    y3 = y;
                     break;
                 case MotionEvent.ACTION_DRAGGED:
-                    physicalObject.xAcceleration = x-centerX;
-                    physicalObject.yAcceleration = y-centerY;
+                    physicalObject.xAcceleration = x-x3;
+                    physicalObject.yAcceleration = y-y3;
 
                 case MotionEvent.ACTION_UP:
                     joystickReturn();
