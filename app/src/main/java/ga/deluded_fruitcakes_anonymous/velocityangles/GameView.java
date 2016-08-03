@@ -20,6 +20,7 @@ public class GameView extends View {
     centerX = sWidth * 0.5;
     centerY = sHeight * 0.9;
     }
+     @Override
     public boolean onTouchEvent(MotionEvent e) {
         // MotionEvent reports input details from the touch screen
         // and other input controls. In this case, you are only
@@ -27,12 +28,10 @@ public class GameView extends View {
 
         float x = e.getX();
         float y = e.getY();
-
+    if(y >= borderHeight){
         switch (e.getAction()) {
             case MotionEvent.ACTION_DOWN:
-                Toast.makeText(getContext(), "Screen Touched at " + x + ", " + y, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Screen Touched at " + (x-centerX) + ", " + (y-centerY), Toast.LENGTH_SHORT).show();
 
-        }
-        return true;
-    }
+        }}
 }
