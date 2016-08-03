@@ -15,7 +15,7 @@ import android.widget.Toast;
  */
 public class GameView extends View {
     float centerX, centerY;
-    float borderHeight;
+    float borderHeight, MinHeight,MaxWidth, MinWidth;
     DrawableObject drawableobject;
     PhysicalObject physicalobject;
     Bitmap bitmapBase = BitmapFactory.decodeResource(getResources(), R.drawable.joystick_base);
