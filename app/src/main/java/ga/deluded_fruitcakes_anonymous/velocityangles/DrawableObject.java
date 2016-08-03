@@ -1,3 +1,5 @@
+package ga.deluded_fruitcakes_anonymous.velocityangles
+
 public class DrawableObject{
 
 RectF bounds = new RectF();
