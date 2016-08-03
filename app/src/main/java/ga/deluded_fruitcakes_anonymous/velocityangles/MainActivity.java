@@ -8,6 +8,17 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     MyView v;
+    int width,height;
+    @Override
+    protected void onCreate(Bundle savedInstanceState){
+        super.onCreate(savedInstanceState);
+        DisplayMetrics displaymetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
+        height = displaymetrics.heightPixels;
+        width = displaymetrics.widthPixels;
+        v = new GameView(this);
+        setContentView(v);
+    }
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         v = new MyView(this);
