@@ -16,6 +16,7 @@ import android.widget.Toast;
 public class GameView extends View {
     float centerX, centerY;
     float borderHeight, MinHeight,MaxWidth, MinWidth;
+    String Message = "hello";
     DrawableObject drawableObject;
     PhysicalObject physicalObject;
     Bitmap bitmapBase = BitmapFactory.decodeResource(getResources(), R.drawable.joystick_base);
@@ -45,14 +46,7 @@ public class GameView extends View {
                     Toast.makeText(getContext(), "Joystick moved to " + (x - centerX) + ", " + (y - centerY), Toast.LENGTH_SHORT).show();
                     physicalObject.xAcceleration = x-centerX;
                     physicalObject.yAcceleration = y-centerY;
-                    if((physicalObject.yPos <= y +5) && (physicalObject.yPos >= y-5) ){
-                        if((physicalObject.xPos <=x +5) && (physicalObject.xPos >= x-5) ){
-                            physicalObject.xVelocity = 0;
-                            physicalObject.yVelocity = 0;
-                            physicalObject.xAcceleration = 0;
-                        physicalObject.yAcceleration = 0;
 
-                    }}
                     break;
                 case MotionEvent.ACTION_UP:
                     joystickReturn();
@@ -75,7 +69,18 @@ public class GameView extends View {
         Paint paint = new Paint();
         paint.setTextSize(100);
         paint.setColor(Color.BLACK);
-        canvas.drawText("hello",100,100,paint);
+        canvas.drawText(Message,100,100,paint);
+        if((physicalObject.yPos <= y +5) && (physicalObject.yPos >= y-5) ){
+            Message = " Y = true";
+            if((physicalObject.xPos <=x +5) && (physicalObject.xPos >= x-5) ){
+                Message = " X = true";
+
+                physicalObject.xVelocity = 0;
+                physicalObject.yVelocity = 0;
+                physicalObject.xAcceleration = 0;
+                physicalObject.yAcceleration = 0;
+
+            }}
         try{
             Thread.sleep(100);
         }catch(InterruptedException e){
