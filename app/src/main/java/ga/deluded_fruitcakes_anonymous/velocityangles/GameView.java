@@ -45,12 +45,14 @@ public class GameView extends View {
                     Toast.makeText(getContext(), "Joystick moved to " + (x - centerX) + ", " + (y - centerY), Toast.LENGTH_SHORT).show();
                     physicalObject.xAcceleration = x-centerX;
                     physicalObject.yAcceleration = y-centerY;
-                    if(physicalObject.yPos == y && physicalObject.xPos == x){
-                        physicalObject.xAcceleration = 0;
+                    if((physicalObject.yPos <= y +5) && (physicalObject.yPos >= y-5) ){
+                        if((physicalObject.xPos <=x +5) && (physicalObject.xPos >= x-5) ){
+                            physicalObject.xVelocity = 0;
+                            physicalObject.yVelocity = 0;
+                            physicalObject.xAcceleration = 0;
                         physicalObject.yAcceleration = 0;
-                        physicalObject.xVelocity = 0;
-                        physicalObject.yVelocity = 0;
-                    }
+
+                    }}
                     break;
                 case MotionEvent.ACTION_UP:
                     joystickReturn();
