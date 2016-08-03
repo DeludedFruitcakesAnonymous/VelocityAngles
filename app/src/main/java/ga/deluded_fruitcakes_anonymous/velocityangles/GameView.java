@@ -9,8 +9,16 @@ import android.widget.Toast;
  * Created by Isaac on 8/3/2016.
  */
 public class GameView extends View {
-    public GameView(Context context) {
-        super(context);
+     float centerX, centerY
+  float borderHeight;
+  
+   
+  
+    public GameView(Context context,float sHeight, float sWidth) {
+        super(context); 
+        borderHeight = sHeight * 0.7;
+    centerX = sWidth * 0.5;
+    centerY = sHeight * 0.9;
     }
     public boolean onTouchEvent(MotionEvent e) {
         // MotionEvent reports input details from the touch screen
