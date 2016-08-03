@@ -52,6 +52,10 @@ public class GameView extends View {
                     physicalObject.yAcceleration = y-centerY;
 
                     break;
+                case MotionEvent.ACTION_DRAGGED:
+                    physicalObject.xAcceleration = x-centerX;
+                    physicalObject.yAcceleration = y-centerY;
+
                 case MotionEvent.ACTION_UP:
                     joystickReturn();
                     break;
