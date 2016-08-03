@@ -3,9 +3,12 @@ package ga.deluded_fruitcakes_anonymous.velocityangles;
 /**
  * Created by Isaac on 8/3/2016.
  */
-public class Square {
+public class Joystick {
   float centerX, centerY
-  float borderHeight = 300;
+  float borderHeight;
+  public Joystick(float sWidth, float sHeight){
+    borderHeight = sHeight;
+  }
   @Override
     public boolean onTouchEvent(MotionEvent e) {
         // MotionEvent reports input details from the touch screen
