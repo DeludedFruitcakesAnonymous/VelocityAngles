@@ -45,12 +45,17 @@ public class GameView extends View {
                     Toast.makeText(getContext(), "Joystick moved to " + (x - centerX) + ", " + (y - centerY), Toast.LENGTH_SHORT).show();
                     physicalObject.xAcceleration = x-centerX;
                     physicalObject.xAcceleration = y-centerY;
+                    break;
+                case MotionEvent.ACTION_UP:
+                    joystickReturn();
+                    break;
             }
         }
         return true;
     }
     public void joystickReturn(){
-
+        physicalObject.xPos = centerX;
+        physicalObject.yPos = centerY;
     }
     public void onDraw(Canvas canvas){
         drawableObject.update(canvas);
