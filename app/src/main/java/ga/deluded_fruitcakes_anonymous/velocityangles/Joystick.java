@@ -1,10 +1,12 @@
 package ga.deluded_fruitcakes_anonymous.velocityangles;
 
+import android.view.MotionEvent;
+
 /**
  * Created by Isaac on 8/3/2016.
  */
 public class Joystick {
-  float centerX, centerY
+  float centerX, centerY;
   float borderHeight;
   public Joystick(float sWidth, float sHeight){
     borderHeight = sHeight * 0.7;
