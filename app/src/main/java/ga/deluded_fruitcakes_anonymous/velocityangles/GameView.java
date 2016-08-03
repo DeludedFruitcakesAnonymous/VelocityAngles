@@ -44,7 +44,7 @@ public class GameView extends View {
                 case MotionEvent.ACTION_DOWN:
                     Toast.makeText(getContext(), "Joystick moved to " + (x - centerX) + ", " + (y - centerY), Toast.LENGTH_SHORT).show();
                     physicalObject.xAcceleration = x-centerX;
-                    physicalObject.xAcceleration = y-centerY;
+                    physicalObject.yAcceleration = y-centerY;
                     break;
                 case MotionEvent.ACTION_UP:
                     joystickReturn();
