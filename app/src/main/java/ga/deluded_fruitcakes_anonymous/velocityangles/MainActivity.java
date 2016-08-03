@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
         height = displaymetrics.heightPixels;
         width = displaymetrics.widthPixels;
-        v = new GameView(this);
+        v = new GameView(this,(float)height,(float) width);
         setContentView(v);
     }
 
