@@ -7,7 +7,9 @@ public class Joystick {
   float centerX, centerY
   float borderHeight;
   public Joystick(float sWidth, float sHeight){
-    borderHeight = sHeight;
+    borderHeight = sHeight * 0.7;
+    centerX = sWidth * 0.5;
+    centerY = sHeight * 0.9;
   }
   @Override
     public boolean onTouchEvent(MotionEvent e) {
