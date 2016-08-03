@@ -16,8 +16,8 @@ import android.widget.Toast;
 public class GameView extends View {
     float centerX, centerY;
     float borderHeight, MinHeight,MaxWidth, MinWidth;
-    DrawableObject drawableobject;
-    PhysicalObject physicalobject;
+    DrawableObject drawableObject;
+    PhysicalObject physicalObject;
     Bitmap bitmapBase = BitmapFactory.decodeResource(getResources(), R.drawable.joystick_base);
     Bitmap bitmapTop = BitmapFactory.decodeResource(getResources(), R.drawable.joystick_top);
     public GameView(Context context, float sHeight, float sWidth) {
@@ -28,8 +28,8 @@ public class GameView extends View {
         CreateJoystick();
     }
     public void CreateJoystick(){
-        drawableobject = new DrawableObject(bitmapBase,centerX, centerY,200,200);
-        physicalobject = new PhysicalObject(bitmapTop,centerX,centerY,100,100);
+        drawableObject = new DrawableObject(bitmapBase,centerX, centerY,200,200);
+        physicalObject = new PhysicalObject(bitmapTop,centerX,centerY,100,100);
     }
     @Override
     public boolean onTouchEvent(MotionEvent e) {
@@ -43,15 +43,18 @@ public class GameView extends View {
             switch (e.getAction()) {
                 case MotionEvent.ACTION_DOWN:
                     Toast.makeText(getContext(), "Joystick moved to " + (x - centerX) + ", " + (y - centerY), Toast.LENGTH_SHORT).show();
-                    physicalobject.xAcceleration = x-centerX;
-                    physicalobject.xAcceleration = y-centerY;
+                    physicalObject.xAcceleration = x-centerX;
+                    physicalObject.xAcceleration = y-centerY;
             }
         }
         return true;
     }
+    public void joystickReturn(){
+
+    }
     public void onDraw(Canvas canvas){
-        drawableobject.update(canvas);
-        physicalobject.update(canvas);
+        drawableObject.update(canvas);
+        physicalObject.update(canvas);
         Paint paint = new Paint();
         paint.setTextSize(100);
         paint.setColor(Color.BLACK);
