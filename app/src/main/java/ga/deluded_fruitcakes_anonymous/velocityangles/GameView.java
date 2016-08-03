@@ -40,7 +40,7 @@ public class GameView extends View {
         if (y >= borderHeight) {
             switch (e.getAction()) {
                 case MotionEvent.ACTION_DOWN:
-                    Toast.makeText(getContext(), "Screen Touched at " + (x - centerX) + ", " + (y - centerY), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Joystick moved to " + (x - centerX) + ", " + (y - centerY), Toast.LENGTH_SHORT).show();
                     physicalobject.xAcceleration = x-centerX;
                     physicalobject.xAcceleration = y-centerY;
             }
