@@ -6,7 +6,7 @@ import android.util.DisplayMetrics;
 
 public class MainActivity extends AppCompatActivity {
     GameView v;
-    int width,height;
+    static int width,height;
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
         getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
         height = displaymetrics.heightPixels;
         width = displaymetrics.widthPixels;
-        v = new GameView(this,(float)height,(float) width);
+        v = new GameView(this);
         setContentView(v);
     }
 

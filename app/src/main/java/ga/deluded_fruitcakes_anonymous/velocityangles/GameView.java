@@ -25,16 +25,17 @@ public class GameView extends View {
     float y3;
     Bitmap bitmapBase = BitmapFactory.decodeResource(getResources(), R.drawable.joystick_base);
     Bitmap bitmapTop = BitmapFactory.decodeResource(getResources(), R.drawable.joystick_top);
-    public GameView(Context context, float sHeight, float sWidth) {
+    public GameView(Context context) {
         super(context);
-        borderHeight = sHeight * 0.1f;
-        centerX = sWidth * 0.5f;
-        centerY = sHeight * 0.5f;
+        borderHeight = MainActivity.height * 0.1f;
+        centerX = MainActivity.width * 0.5f;
+        centerY = MainActivity.height * 0.5f;
         CreateJoystick();
     }
     public void CreateJoystick(){
-        drawableObject = new DrawableObject(bitmapBase,centerX, centerY,200,200);
-        physicalObject = new PhysicalObject(bitmapTop,centerX,centerY,100,100);
+        float diameter = MainActivity.width*.1f;
+        drawableObject = new DrawableObject(bitmapBase,centerX, centerY,2*diameter,2*diameter);
+        physicalObject = new PhysicalObject(bitmapTop,centerX,centerY,.8f*diameter,.8f*diameter);
     }
     @Override
     public boolean onTouchEvent(MotionEvent e) {
@@ -82,9 +83,9 @@ public class GameView extends View {
         paint.setTextSize(100);
         paint.setColor(Color.BLACK);
         canvas.drawText(Message,100,100,paint);
-        if((physicalObject.yPos <= y2 +20) && (physicalObject.yPos >= y2-20) ){
+        if((physicalObject.yPos <= y2 +20) && (physicalObject.yPos >= y2-200) ){
             Message = " Y = true";
-            if((physicalObject.xPos <=x2 +20) && (physicalObject.xPos >= x2-20) ){
+            if((physicalObject.xPos <=x2 +20) && (physicalObject.xPos >= x2-200) ){
                 Message = " X = true";
 
                 physicalObject.xVelocity = 0;
