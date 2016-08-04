@@ -92,7 +92,10 @@ public class GameView extends View {
                 physicalObject.xAcceleration = 0;
                 physicalObject.yAcceleration = 0;
 
-            }}
+            }
+        }else{
+            Message = "DFA";
+        }
         try{
             Thread.sleep(100);
         }catch(InterruptedException e){
