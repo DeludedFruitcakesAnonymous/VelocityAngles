@@ -82,9 +82,9 @@ public class GameView extends View {
         paint.setTextSize(100);
         paint.setColor(Color.BLACK);
         canvas.drawText(Message,100,100,paint);
-        if((physicalObject.yPos <= y2 +10) && (physicalObject.yPos >= y2-10) ){
+        if((physicalObject.yPos <= y2 +20) && (physicalObject.yPos >= y2-20) ){
             Message = " Y = true";
-            if((physicalObject.xPos <=x2 +10) && (physicalObject.xPos >= x2-10) ){
+            if((physicalObject.xPos <=x2 +20) && (physicalObject.xPos >= x2-20) ){
                 Message = " X = true";
 
                 physicalObject.xVelocity = 0;
