@@ -57,6 +57,8 @@ public class GameView extends View {
                 case MotionEvent.ACTION_MOVE:
                     physicalObject.xAcceleration = x-x3;
                     physicalObject.yAcceleration = y-y3;
+                    physicalObject.xVelocity = 0;
+                    physicalObject.yVelocity = 0;
                     break;
                 case MotionEvent.ACTION_UP:
                     joystickReturn();
