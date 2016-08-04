@@ -16,7 +16,7 @@ import android.widget.Toast;
 public class GameView extends View {
     float centerX, centerY;
     float borderHeight, MinHeight,MaxWidth, MinWidth;
-    String Message = "hello";
+    String Message = "Deluded Fruitcakes Anonymous";
     DrawableObject drawableObject;
     PhysicalObject physicalObject;
     float x2;
@@ -82,9 +82,9 @@ public class GameView extends View {
         paint.setTextSize(100);
         paint.setColor(Color.BLACK);
         canvas.drawText(Message,100,100,paint);
-        if((physicalObject.yPos <= y2 +5) && (physicalObject.yPos >= y2-5) ){
+        if((physicalObject.yPos <= y2 +10) && (physicalObject.yPos >= y2-10) ){
             Message = " Y = true";
-            if((physicalObject.xPos <=x2 +5) && (physicalObject.xPos >= x2-5) ){
+            if((physicalObject.xPos <=x2 +10) && (physicalObject.xPos >= x2-10) ){
                 Message = " X = true";
 
                 physicalObject.xVelocity = 0;
