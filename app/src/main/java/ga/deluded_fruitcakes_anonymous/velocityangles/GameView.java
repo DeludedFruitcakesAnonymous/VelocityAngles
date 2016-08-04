@@ -30,6 +30,9 @@ public class GameView extends View {
         borderHeight = MainActivity.height * 0.1f;
         centerX = MainActivity.width * 0.5f;
         centerY = MainActivity.height * 0.5f;
+        MinHeight = MainActivity.height * 1;
+        MaxWidth = MainActivity.width;
+        MinWidth = 0;
         CreateJoystick();
     }
     public void CreateJoystick(){
@@ -39,27 +42,29 @@ public class GameView extends View {
     }
     @Override
     public boolean onTouchEvent(MotionEvent e) {
-        // MotionEvent reports input details from the touch screen
-        // and other input controls. In this case, you are only
-        // interested in events where the touch position changed.
+        /* MotionEvent reports input details from the touch screen
+        * and other input controls. In this case, you are only
+        * interested in events where the touch position changed. */
 
         float x = e.getX();
         float y = e.getY();
-
+        x2 = x;
+        y2= y;
         if (y >= borderHeight) {
             switch (e.getAction()) {
                 case MotionEvent.ACTION_DOWN:
-                    Toast.makeText(getContext(), "Joystick moved to " + (x - centerX) + ", " + (y - centerY), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getContext(), "Joystick moved to " + (x - centerX) + ", " + (y - centerY), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "down", Toast.LENGTH_SHORT).show();
                     physicalObject.xAcceleration = x-centerX;
                     physicalObject.yAcceleration = y-centerY;
                     x3 = x;
                     y3 = y;
                     break;
                 case MotionEvent.ACTION_MOVE:
-                    physicalObject.xAcceleration = x-x3;
-                    physicalObject.yAcceleration = y-y3;
-                    physicalObject.xVelocity = 0;
-                    physicalObject.yVelocity = 0;
+
+                    physicalObject.xPos = x;
+                    physicalObject.yPos = y;
+
                     break;
                 case MotionEvent.ACTION_UP:
                     joystickReturn();
@@ -83,20 +88,36 @@ public class GameView extends View {
         paint.setTextSize(100);
         paint.setColor(Color.BLACK);
         canvas.drawText(Message,100,100,paint);
-        if((physicalObject.yPos <= y2 +20) && (physicalObject.yPos >= y2-200) ){
+        if((physicalObject.yPos <= y2 +100) && (physicalObject.yPos >= y2-100) ){
             Message = " Y = true";
-            if((physicalObject.xPos <=x2 +20) && (physicalObject.xPos >= x2-200) ){
+            if((physicalObject.xPos <=x2 +100) && (physicalObject.xPos >= x2-100) ){
                 Message = " X = true";
 
-                physicalObject.xVelocity = 0;
-                physicalObject.yVelocity = 0;
+
                 physicalObject.xAcceleration = 0;
                 physicalObject.yAcceleration = 0;
+                physicalObject.xVelocity = 0;
+                physicalObject.yVelocity = 0;
 
             }
+
         }else{
             Message = "DFA";
         }
+        if(physicalObject.yPos >= borderHeight &&physicalObject.yPos<= MinHeight ){
+        Message = "border height";
+            physicalObject.xAcceleration = 0;
+            physicalObject.yAcceleration = 0;
+            physicalObject.xVelocity = 0;
+            physicalObject.yVelocity = 0;
+        }else{Message = "DFA";} if(physicalObject.xPos >= MaxWidth && physicalObject.xPos <= MinWidth){
+            Message = "border width";
+            physicalObject.xAcceleration = 0;
+            physicalObject.yAcceleration = 0;
+            physicalObject.xVelocity = 0;
+            physicalObject.yVelocity = 0;
+
+        }else{Message = "DFA";}
         try{
             Thread.sleep(100);
         }catch(InterruptedException e){
