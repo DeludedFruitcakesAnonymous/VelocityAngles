@@ -21,7 +21,7 @@ RectF bounds = new RectF();
         bounds.set(xPos - width * .5f,yPos-height*.5f,xPos+width*.5f,yPos+height*.5f);
     }
     public void update(Canvas canvas){
-        if(bitmap == null)System.out.println("BC:SCREW THIS BITMAP, IT IS NOT REAL  AND NEITHER IS THE UNIVERSE");
+        if(bitmap == null)System.out.println("You have a little error, IDIOT!!!!");
         else canvas.drawBitmap(bitmap,null,bounds,null);
 
     }

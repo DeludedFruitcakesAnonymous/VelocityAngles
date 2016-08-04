@@ -55,16 +55,18 @@ public class GameView extends View {
                 case MotionEvent.ACTION_DOWN:
                     //Toast.makeText(getContext(), "Joystick moved to " + (x - centerX) + ", " + (y - centerY), Toast.LENGTH_SHORT).show();
                     Toast.makeText(getContext(), "down", Toast.LENGTH_SHORT).show();
-                    physicalObject.xAcceleration = x-centerX;
-                    physicalObject.yAcceleration = y-centerY;
-                    x3 = x;
-                    y3 = y;
+                   if(drawableObject.bounds.contains(x,y)){
+                       Toast.makeText(getContext(), "Circle clicked", Toast.LENGTH_SHORT).show();
+                       physicalObject.xPos = x;
+                       physicalObject.yPos = y;
+                   }
                     break;
                 case MotionEvent.ACTION_MOVE:
+                    if(drawableObject.bounds.contains(x,y)) {
 
-                    physicalObject.xPos = x;
-                    physicalObject.yPos = y;
-
+                        physicalObject.xPos = x;
+                        physicalObject.yPos = y;
+                    }
                     break;
                 case MotionEvent.ACTION_UP:
                     joystickReturn();
